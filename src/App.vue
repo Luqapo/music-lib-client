@@ -1,10 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <el-container style="height: 100vh, border: 1px solid #eee, margin: 0px, padding: 0px">
+    <el-aside>
+      <Menu/>
+    </el-aside>
+    <el-container>
+      <el-header>
+        <Indicator/>
+      </el-header>
+      <el-main>
+        <router-view/>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
+
+<script>
+import Menu from '@/components/Menu.vue';
+import Indicator from '@/components/Indicator.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Menu,
+    Indicator,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -13,6 +34,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
+  background-color: darkgray;
 }
 
 #nav {
